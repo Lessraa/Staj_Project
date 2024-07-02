@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/main.css">
+    
+
+    <title>Quiz App</title>
+    
+</head>
+<body>
+    <div>
+        <h1>Quiz App</h1>
+        <form id="questionForm">
+            <label for="soru">Soru:</label><br>
+            <input type="text" id="soru" name="soru" required><br>
+            
+            <label for="a">Seçenek A:</label><br>
+            <input type="text" id="a" name="a" required><br>
+            
+            <label for="b">Seçenek B:</label><br>
+            <input type="text" id="b" name="b" required><br>
+            
+            <label for="c">Seçenek C:</label><br>
+            <input type="text" id="c" name="c" required><br>
+            
+            <label for="d">Seçenek D:</label><br>
+            <input type="text" id="d" name="d" required><br>
+            
+            <label for="correct_answer">Doğru Cevap:</label><br>
+            <input type="text" id="correct_answer" name="correct_answer" required><br><br>
+            
+            <button type="submit">Soruyu Ekle</button>
+        </form>
+        
+        <p id="message"></p>
+    </div>
+    
+    <div class="questions-container" id="questionsContainer">
+        <h2>Veritabanındaki Sorular</h2>
+        <!-- Sorular burada listelenecek -->
+    </div>
+
+    <script src="./script/main.js"></script>
+</body>
+</html>
+

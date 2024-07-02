@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    justify-content: space-between;
+}
+form {
+    flex: 1;
+}
+.questions-container {
+    flex: 1;
+    padding: 20px;
+}
+.question-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+.question-card h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+.question-card p {
+    margin: 5px 0;
+}

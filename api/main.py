@@ -5,7 +5,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
 from fastapi.middleware.cors import CORSMiddleware
 
-# Veritabanı bağlantısı
+# Veritabanı bağlantısı ORM
 SQLALCHEMY_DATABASE_URL = "sqlite:///./quiz.db"
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -23,6 +23,26 @@ class QuestionModel(Base):
     d = Column(String)
     correct_answer = Column(String)
 
+class UserModel(Base):
+    __tablename__ = "users"
+
+    user_id = Column(Integer, primary_key=True, index=True)
+    username = Column(String, index=True)
+    password = Column(String)
+    name = Column(String)
+    surname = Column(String)
+    e_mail = Column(String)
+
+class LoginUser(BaseModel):
+    username: str
+    password: str
+
+class RegisterUser(LoginUser):
+    name: str
+    surname: str
+    e_mail: str
+
+
 # Pydantic modeli
 class QuestionSchema(BaseModel):
     soru: str
@@ -34,6 +54,9 @@ class QuestionSchema(BaseModel):
 
 class QuestionUpdate(QuestionSchema):
     pass
+
+
+
 
 # Veritabanı oluşturma
 Base.metadata.create_all(engine)
@@ -57,42 +80,67 @@ def get_db():
     finally:
         db.close()
 
-# add me some questions
-@app.on_event("startup")
-async def startup_event():
-    db = SessionLocal()
-    # check if there are any questions if not add some
-    if db.query(QuestionModel).count() == 0:
-        questions = [
-            {
-                "soru": "2+2 kaç eder?",
-                "a": "3",
-                "b": "4",
-                "c": "5",
-                "d": "6",
-                "correct_answer": "b"
-            },
-            {
-                "soru": "3*3 kaç eder?",
-                "a": "6",
-                "b": "9",
-                "c": "12",
-                "d": "15",
-                "correct_answer": "b"
-            },
-            {
-                "soru": "4/2 kaç eder?",
-                "a": "1",
-                "b": "2",
-                "c": "3",
-                "d": "4",
-                "correct_answer": "b"
-            }
-        ]
-        for q in questions:
-            db_question = QuestionModel(**q)
-            db.add(db_question)
-        db.commit()
+# # add me some questions
+# @app.on_event("startup")
+# async def startup_event():
+#     db = SessionLocal()
+#     # check if there are any questions if not add some
+#     if db.query(QuestionModel).count() == 0:
+#         questions = [
+#             {
+#                 "soru": "2+2 kaç eder?",
+#                 "a": "3",
+#                 "b": "4",
+#                 "c": "5",
+#                 "d": "6",
+#                 "correct_answer": "b"
+#             },
+#             {
+#                 "soru": "3*3 kaç eder?",
+#                 "a": "6",
+#                 "b": "9",
+#                 "c": "12",
+#                 "d": "15",
+#                 "correct_answer": "b"
+#             },
+#             {
+#                 "soru": "4/2 kaç eder?",
+#                 "a": "1",
+#                 "b": "2",
+#                 "c": "3",
+#                 "d": "4",
+#                 "correct_answer": "b"
+#             }
+#         ]
+#         for q in questions:
+#             db_question = QuestionModel(**q)
+#             db.add(db_question)
+#         db.commit()
+
+# Login api
+@app.post("/register/", response_model=RegisterUser)
+def register_post(user: RegisterUser, db: Session = Depends(get_db)):
+    db_question = db.query(UserModel).filter(UserModel.username == user.username).first()
+    if db_question is not None:
+        raise HTTPException(status_code=404, detail="Kullanıcı zaten var")
+    db_question = UserModel(**user.dict())
+    db.add(db_question)
+    db.commit()
+    db.refresh(db_question)
+    return db_question
+
+
+@app.post("/login/", response_model=LoginUser)
+def login_post(user: LoginUser, db: Session = Depends(get_db)):
+    db_question = db.query(UserModel).filter(UserModel.username == user.username).first()
+    if db_question is None:
+        raise HTTPException(status_code=404, detail="Kullanıcı bulunamadı")
+    if db_question.password != user.password:
+        raise HTTPException(status_code=404, detail="Şifre hatalı")
+    return db_question
+    
+
+
 
 # Soru ekleme
 @app.post("/questions/", response_model=QuestionSchema)
@@ -139,3 +187,4 @@ def delete_question(soru_id: int, db: Session = Depends(get_db)):
     db.delete(question)
     db.commit()
     return {"message": "Soru başarıyla silindi"}
+
