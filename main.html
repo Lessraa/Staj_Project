@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: space-between;
+        }
+        form {
+            flex: 1;
+        }
+        .questions-container {
+            flex: 1;
+            padding: 20px;
+        }
+        .question-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .question-card h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .question-card p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Quiz App</h1>
+        <form id="questionForm">
+            <label for="soru">Soru:</label><br>
+            <input type="text" id="soru" name="soru" required><br>
+            
+            <label for="a">Seçenek A:</label><br>
+            <input type="text" id="a" name="a" required><br>
+            
+            <label for="b">Seçenek B:</label><br>
+            <input type="text" id="b" name="b" required><br>
+            
+            <label for="c">Seçenek C:</label><br>
+            <input type="text" id="c" name="c" required><br>
+            
+            <label for="d">Seçenek D:</label><br>
+            <input type="text" id="d" name="d" required><br>
+            
+            <label for="correct_answer">Doğru Cevap:</label><br>
+            <input type="text" id="correct_answer" name="correct_answer" required><br><br>
+            
+            <button type="submit">Soruyu Ekle</button>
+        </form>
+        
+        <p id="message"></p>
+    </div>
+    
+    <div class="questions-container" id="questionsContainer">
+        <h2>Veritabanındaki Sorular</h2>
+        <!-- Sorular burada listelenecek -->
+    </div>
+
+    <script>
+        document.getElementById('questionForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {
+                soru: formData.get('soru'),
+                a: formData.get('a'),
+                b: formData.get('b'),
+                c: formData.get('c'),
+                d: formData.get('d'),
+                correct_answer: formData.get('correct_answer')
+            };
+            
+            const response = await fetch('http://localhost:8000/questions/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok) {
+                document.getElementById('message').textContent = 'Soru başarıyla eklendi!';
+                loadQuestions();
+            } else {
+                document.getElementById('message').textContent = 'Soru eklenirken bir hata oluştu: ' + result.detail;
+            }
+        });
+
+        async function loadQuestions() {
+            const response = await fetch('http://localhost:8000/questions/');
+            const questions = await response.json();
+            
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = '<h2>Veritabanındaki Sorular</h2>'; // Başlığı tekrar ekleyin
+            
+            questions.forEach(question => {
+                const card = document.createElement('div');
+                card.className = 'question-card';
+                
+                card.innerHTML = `
+                    <h3>${question.soru}</h3>
+                    <p>A: ${question.a}</p>
+                    <p>B: ${question.b}</p>
+                    <p>C: ${question.c}</p>
+                    <p>D: ${question.d}</p>
+                    <p>Doğru Cevap: ${question.correct_answer}</p>
+                `;
+                
+                container.appendChild(card);
+            });
+        }
+
+        // Sayfa yüklendiğinde soruları yükleyin
+        window.onload = loadQuestions;
+    </script>
+</body>
+</html>
+
