@@ -1,1 +1,1 @@
-# Çalıştırmak için :fastapi dev main.py  
+# Çalıştırmak için :fastapi dev api/main.py  
