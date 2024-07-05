@@ -3,7 +3,7 @@ async function fetchProfile() {
     try {
         const response = await fetch("http://localhost:8000/users/" + username, {
             method: 'GET',
-            credentials: 'include' // Çerezlerin otomatik olarak gönderilmesini sağlar
+            credentials: 'include'
         });
 
         if (!response.ok) {
@@ -90,7 +90,7 @@ async function loadQuestions() {
         const questions = await response.json();
         
         const container = document.getElementById('questionsContainer');
-        container.innerHTML = '<h2>Veritabanındaki Sorular</h2>'; // Başlığı tekrar ekleyin
+        container.innerHTML = '<h2>Veritabanındaki Sorular</h2>';
         
         questions.forEach(question => {
             const card = document.createElement('div');

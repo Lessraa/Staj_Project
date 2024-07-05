@@ -31,7 +31,7 @@ class QuestionModel(Base):
     c = Column(String)
     d = Column(String)
     correct_answer = Column(String)
-
+# User Modeli
 class UserModel(Base):
     __tablename__ = "users"
 
@@ -71,12 +71,11 @@ class QuestionUpdate(QuestionSchema):
     pass
 
 
-
-
 # Veritabanı oluşturma
 Base.metadata.create_all(engine)
 
 app = FastAPI()
+
 app.add_middleware(SessionMiddleware, secret_key="hdisigorta")
 
 # CORS ayarları
@@ -96,44 +95,7 @@ def get_db():
     finally:
         db.close()
 
-# # add me some questions
-# @app.on_event("startup")
-# async def startup_event():
-#     db = SessionLocal()
-#     # check if there are any questions if not add some
-#     if db.query(QuestionModel).count() == 0:
-#         questions = [
-#             {
-#                 "soru": "2+2 kaç eder?",
-#                 "a": "3",
-#                 "b": "4",
-#                 "c": "5",
-#                 "d": "6",
-#                 "correct_answer": "b"
-#             },
-#             {
-#                 "soru": "3*3 kaç eder?",
-#                 "a": "6",
-#                 "b": "9",
-#                 "c": "12",
-#                 "d": "15",
-#                 "correct_answer": "b"
-#             },
-#             {
-#                 "soru": "4/2 kaç eder?",
-#                 "a": "1",
-#                 "b": "2",
-#                 "c": "3",
-#                 "d": "4",
-#                 "correct_answer": "b"
-#             }
-#         ]
-#         for q in questions:
-#             db_question = QuestionModel(**q)
-#             db.add(db_question)
-#         db.commit()
-
-
+# Kullanıcı kayıt
 @app.post("/register/", response_model=RegisterUser)
 def register_post(user: RegisterUser, db: Session = Depends(get_db)):
     db_question = db.query(UserModel).filter(UserModel.username == user.username).first()
@@ -145,13 +107,13 @@ def register_post(user: RegisterUser, db: Session = Depends(get_db)):
     db.refresh(db_question)
     return db_question
 
-# List me the users
+# Kullanıcı listeleme
 @app.get("/users/")
 def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     users = db.query(UserModel).offset(skip).limit(limit).all()
     return users
 
-# Get me a user from username
+# Kullanıcı bilgilerini alma
 @app.get("/users/{username}")
 def read_user(username: str, db: Session = Depends(get_db)):
     user = db.query(UserModel).filter(UserModel.username == username).first()
@@ -159,7 +121,7 @@ def read_user(username: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Kullanıcı bulunamadı")
     return user
 
-# Delete a user from username
+# Kullanıcı silme
 @app.delete("/users/{username}")
 def delete_user(username: str, db: Session = Depends(get_db)):
     user = db.query(UserModel).filter(UserModel.username == username).first()
@@ -170,7 +132,7 @@ def delete_user(username: str, db: Session = Depends(get_db)):
     return {"message": "Kullanıcı başarıyla silindi"}
 
 
-# Kullanıcı giriş endpoint'i
+# Kullanıcı giriş
 @app.post("/login/", response_model=LoginUser)
 def login_post(user: LoginUser, db: Session = Depends(get_db), response: Response = None):
     db_user = db.query(UserModel).filter(UserModel.username == user.username).first()

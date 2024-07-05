@@ -36,8 +36,8 @@ body {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    overflow-y: auto;  /* Scrollbar ekle */
-    max-height: 350px;  /* Belirli bir yüksekliğe ayarla */
+    overflow-y: auto;  
+    max-height: 350px;  
 }
 
 h1 {
