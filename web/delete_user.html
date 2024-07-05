@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete User</title>
+</head>
+<body>
+    <h2>Delete User</h2>
+    <form id="deleteUserForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <button type="button" onclick="deleteUser()">Delete User</button>
+    </form>
+
+    <div id="message"></div>
+
+    <script>
+        async function deleteUser() {
+            const username = document.getElementById('username').value;
+
+            try {
+                const response = await fetch(`http://localhost:8000/users/${username}`, {
+                    method: 'DELETE'
+                });
+
+                const messageDiv = document.getElementById('message');
+                messageDiv.innerHTML = '';
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    messageDiv.textContent = `Error: ${errorData.detail}`;
+                    return;
+                }
+
+                const result = await response.json();
+                messageDiv.textContent = result.message;
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('message').textContent = 'An error occurred while deleting the user.';
+            }
+        }
+    </script>
+</body>
+</html>
