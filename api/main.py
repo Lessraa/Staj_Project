@@ -25,6 +25,7 @@ class QuestionModel(Base):
     __tablename__ = "questions"
 
     soru_id = Column(Integer, primary_key=True, index=True)
+    soru_turu = Column(String, index=True)
     soru = Column(String, index=True)
     a = Column(String)
     b = Column(String)
@@ -60,6 +61,7 @@ class RegisterUser(LoginUser):
     is_student: int
 
 class QuestionSchema(BaseModel):
+    soru_turu: str
     soru: str
     a: str
     b: str
@@ -163,6 +165,14 @@ def read_questions(skip: int = 0, limit: int = 100, db: Session = Depends(get_db
 @app.get("/questions/{soru_id}")
 def read_question(soru_id: int, db: Session = Depends(get_db)):
     question = db.query(QuestionModel).filter(QuestionModel.soru_id == soru_id).first()
+    if question is None:
+        raise HTTPException(status_code=404, detail="Soru bulunamadı")
+    return question
+
+# Katekoriye göre soruları listeleme
+@app.get("/questions/category/{soru_turu}")
+def read_question(soru_turu: str, db: Session = Depends(get_db)):
+    question = db.query(QuestionModel).filter(QuestionModel.soru_turu == soru_turu).all()
     if question is None:
         raise HTTPException(status_code=404, detail="Soru bulunamadı")
     return question

@@ -53,6 +53,7 @@ document.getElementById('questionForm').addEventListener('submit', async functio
     
     const formData = new FormData(event.target);
     const data = {
+        soru_turu: formData.get('soru_turu'),
         soru: formData.get('soru'),
         a: formData.get('a'),
         b: formData.get('b'),
@@ -97,6 +98,7 @@ async function loadQuestions() {
             card.className = 'question-card';
             
             card.innerHTML = `
+                <h3>${question.soru_turu}</h3>
                 <h3>${question.soru}</h3>
                 <p>A: ${question.a}</p>
                 <p>B: ${question.b}</p>
