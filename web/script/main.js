@@ -115,9 +115,13 @@ async function loadQuestions() {
     }
 }
 
-
-
 window.onload = async function() {
     await fetchProfile();
     await loadQuestions();
 };
+
+
+document.getElementById('soruCozButton').addEventListener('click', function() {
+    const page = '/web/quiz.html';
+    window.location.href = page;
+});

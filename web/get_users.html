@@ -16,76 +16,16 @@
                 <th>Email</th>
                 <th>Role</th>
                 <th>Total Questions</th>
-                <th>Correct Questions</th>
-                <th>Wrong Questions</th>
+                <th>Correct Answers</th>
+                <th>Wrong Answers</th>
                 <th>Score</th>
-
             </tr>
         </thead>
         <tbody>
         </tbody>
     </table>
 
-    <script>
-        async function fetchUsers() {
-            try {
-                const response = await fetch('http://localhost:8000/users/');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-
-                const users = await response.json();
-                const tbody = document.querySelector('#userTable tbody');
-                tbody.innerHTML = '';
-
-                users.forEach(user => {
-                    const row = document.createElement('tr');
-
-                    const nameCell = document.createElement('td');
-                    nameCell.textContent = user.name;
-                    row.appendChild(nameCell);
-
-                    const surnameCell = document.createElement('td');
-                    surnameCell.textContent = user.surname;
-                    row.appendChild(surnameCell);
-
-                    const usernameCell = document.createElement('td');
-                    usernameCell.textContent = user.username;
-                    row.appendChild(usernameCell);
-
-                    const emailCell = document.createElement('td');
-                    emailCell.textContent = user.e_mail;
-                    row.appendChild(emailCell);
-
-                    const roleCell = document.createElement('td');
-                    roleCell.textContent = user.is_teacher ? 'Teacher' : 'Student';
-                    row.appendChild(roleCell);
-
-                    const totalQuestionsCell = document.createElement('td');
-                    totalQuestionsCell.textContent = user.total_questions;
-                    row.appendChild(totalQuestionsCell);
-
-                    const correctQuestionsCell = document.createElement('td');
-                    correctQuestionsCell.textContent = user.correct_questions;
-                    row.appendChild(correctQuestionsCell);
-
-                    const wrongQuestionsCell = document.createElement('td');
-                    wrongQuestionsCell.textContent = user.wrong_questions;
-                    row.appendChild(wrongQuestionsCell);
-
-                    const scoreCell = document.createElement('td');
-                    scoreCell.textContent = user.score;
-                    row.appendChild(scoreCell);
-
-                    tbody.appendChild(row);
-                });
-            } catch (error) {
-                console.error('Error fetching users:', error);
-                alert('An error occurred while fetching the user list.');
-            }
-        }
-
-        window.onload = fetchUsers;
-    </script>
+    <script src="./script/get_users.js"></script>
+        
 </body>
 </html>

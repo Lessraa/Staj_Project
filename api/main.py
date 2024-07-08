@@ -49,6 +49,12 @@ class UserModel(Base):
     wrong_answer = Column(Integer, default=0)
     score = Column(Integer, default=0)
 
+class ScoreUpdate(BaseModel):
+    total_question: int
+    correct_answer: int
+    wrong_answer: int
+    score: int
+
 class LoginUser(BaseModel):
     username: str
     password: str
@@ -199,6 +205,30 @@ def delete_question(soru_id: int, db: Session = Depends(get_db)):
     db.delete(question)
     db.commit()
     return {"message": "Soru başarıyla silindi"}
+
+# Veri tabanından kullanıcının scorunu güncelleme
+@app.put("/users/{username}/score")
+def update_user_score(username: str, score_update: ScoreUpdate, db: Session = Depends(get_db)):
+    db_user = db.query(UserModel).filter(UserModel.username == username).first()
+    if db_user is None:
+        raise HTTPException(status_code=404, detail="Kullanıcı bulunamadı")
+    
+    db_user.total_question += score_update.total_question
+    db_user.correct_answer += score_update.correct_answer
+    db_user.wrong_answer += score_update.wrong_answer
+    db_user.score += score_update.score
+    
+    db.commit()
+    db.refresh(db_user)
+    return {
+        "message": "Kullanıcı istatistikleri başarıyla güncellendi",
+        "new_stats": {
+            "total_question": db_user.total_question,
+            "correct_answer": db_user.correct_answer,
+            "wrong_answer": db_user.wrong_answer,
+            "score": db_user.score
+        }
+    }
 
 
 
