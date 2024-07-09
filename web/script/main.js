@@ -17,7 +17,7 @@ async function fetchProfile() {
             <p><strong>Surname:</strong> ${user.surname}</p>
             <p><strong>Username:</strong> ${user.username}</p>
             <p><strong>Email:</strong> ${user.e_mail}</p>
-            <p><strong>Role:</strong> ${user.is_teacher ? 'Teacher' : (user.is_student ? 'Student' : 'None')}</p>
+            <p><strong>Role:</strong> ${user.is_teacher ? 'Teacher' : 'Student'}</p>
         `;
     } catch (error) {
         console.error('Error fetching profile:', error);

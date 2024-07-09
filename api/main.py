@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Depends
 from pydantic import BaseModel
-from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy import create_engine, Column, Integer, String, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
 from fastapi.middleware.cors import CORSMiddleware
@@ -8,9 +8,6 @@ from fastapi.responses import Response
 from fastapi import FastAPI, HTTPException, Depends
 from starlette.middleware.sessions import SessionMiddleware
 from pydantic import BaseModel
-from sqlalchemy import create_engine, Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, Session
 
 
 
@@ -42,8 +39,7 @@ class UserModel(Base):
     name = Column(String)
     surname = Column(String)
     e_mail = Column(String)
-    is_teacher = Column(Integer, default=0)
-    is_student = Column(Integer, default=0)
+    is_teacher = Column(Boolean, default=0)
     total_question = Column(Integer, default=0)
     correct_answer = Column(Integer, default=0)
     wrong_answer = Column(Integer, default=0)
@@ -63,8 +59,7 @@ class RegisterUser(LoginUser):
     name: str
     surname: str
     e_mail: str
-    is_teacher: int
-    is_student: int
+    is_teacher: bool
 
 class QuestionSchema(BaseModel):
     soru_turu: str

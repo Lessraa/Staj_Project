@@ -15,9 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!response.ok) throw new Error('Network response was not ok');
                 const questions = await response.json();
 
-
                 questionList.innerHTML = '';
-
 
                 questions.forEach((question) => {
                     const questionItem = document.createElement('li');

@@ -29,7 +29,8 @@ async function registerUser() {
 
         const userData = await response.json();
         alert('User registered successfully!');
-        // Redirect to login page or other action
+        //TEST
+        window.location.href = 'http://localhost:5500/web/login.html';
     } catch (error) {
         console.error('Error:', error);
         alert('An error occurred while registering the user.');
