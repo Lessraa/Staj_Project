@@ -33,3 +33,4 @@ Technologies used in the project:
 *   Python
 *   SqlAlchemy
 *   Sqlite
+
