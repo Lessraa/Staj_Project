@@ -103,10 +103,12 @@ function App() {
             </div>
           </div>
 
-          {/* Öğretmen Duyuru Tablosu */}
+          {/* Eklenen yeni testler */}
+
+
 
           <div class="col-3">
-            <div class="bg-success p-0">
+            <div class="bg-success p-">
               <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
                 <div class="list-group">
                   <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
@@ -146,8 +148,37 @@ function App() {
           {/* Öğretmen duyuru tablosu */}
 
           <div className="col-6">
-            <div className="bg-warning p-5 ">
-              Öğretmen Duyuru Tablosu
+            <div className="bg-warning p-3 ">
+              <h4 class="fst-italic">Öğretmenden Duyurular</h4>
+              <ul class="list-unstyled">
+                <li>
+                  <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                    <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+                    <div class="col-lg-8">
+                      <h6 class="mb-0">Example blog post title</h6>
+                      <small class="text-body-secondary">January 15, 2024</small>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                    <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+                    <div class="col-lg-8">
+                      <h6 class="mb-0">This is another blog post title</h6>
+                      <small class="text-body-secondary">January 14, 2024</small>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="d-flex flex-column flex-lg-row gap-3 align-items-start align-items-lg-center py-3 link-body-emphasis text-decoration-none border-top" href="#">
+                    <svg class="bd-placeholder-img" width="100%" height="96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+                    <div class="col-lg-8">
+                      <h6 class="mb-0">Longer blog post title: This one has multiple lines!</h6>
+                      <small class="text-body-secondary">January 13, 2024</small>
+                    </div>
+                  </a>
+                </li>
+              </ul>
             </div>
 
             {/* Boş tablo */}
@@ -160,18 +191,18 @@ function App() {
           </div>
 
           {/* Slide Show şeysi (türkçesini unuttum) */}
-          <div className="col-12">
+          {/* <div className="col-12">
 
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="https://picsum.photos/200/300" class="d-block w-50" alt="..." />
+                  <img src="örnek_foto.jpg" class="d-block w-auto" alt="..." />
                 </div>
                 <div class="carousel-item">
-                  <img src="https://picsum.photos/200/300" class="d-block w-50" alt="..." />
+                  <img src="https://picsum.photos/200/300" class="d-block w-auto" alt="..." />
                 </div>
                 <div class="carousel-item">
-                  <img src="https://picsum.photos/200/300" class="d-block w-50" alt="..." />
+                  <img src="https://picsum.photos/200/300" class="d-block w-auto" alt="..." />
                 </div>
               </div>
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -182,22 +213,64 @@ function App() {
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
               </button>
-            </div>
+          </div>
+            </div> */}
 
-            <div class="container my-5">
-              <div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5">
-                <button type="button" class="position-absolute top-0 end-0 p-3 m-3 btn-close bg-secondary bg-opacity-10 rounded-pill" aria-label="Close"></button>
-                <svg class="bi mt-5 mb-3" width="48" height="48"><use xlink:href="#check2-circle"></use></svg>
-                <h1 class="text-body-emphasis">Placeholder jumbotron</h1>
-                <p class="col-lg-6 mx-auto mb-4">
-                  This faded back jumbotron is useful for placeholder content. It's also a great way to add a bit of context to a page or section when no content is available and to encourage visitors to take a specific action.
-                </p>
-                <button class="btn btn-primary px-5 mb-5" type="button">
-                  Call to action
-                </button>
-              </div>
+          <div class="container my-5">
+            <div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5">
+              <button type="button" class="position-absolute top-0 end-0 p-3 m-3 btn-close bg-secondary bg-opacity-10 rounded-pill" aria-label="Close"></button>
+              <svg class="bi mt-5 mb-3" width="48" height="48"><use xlink:href="#check2-circle"></use></svg>
+              <h1 class="text-body-emphasis">Placeholder jumbotron</h1>
+              <p class="col-lg-6 mx-auto mb-4">
+                This faded back jumbotron is useful for placeholder content. It's also a great way to add a bit of context to a page or section when no content is available and to encourage visitors to take a specific action.
+              </p>
+              <button class="btn btn-primary px-5 mb-5" type="button">
+                Call to action
+              </button>
             </div>
           </div>
+
+          {/* Deneme tahtası buranın altı */}
+          <div className="col-6">
+            <div class="media">
+              <img src="örnek_foto.jpg" class="img-fluid" alt="Responsive image"></img>
+              <div class="media-body">
+                <h5 class="mt-0">Media heading</h5>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </div>
+            </div>
+
+            {/* <h1 class="text-hide" style="background-image: url('örnek_foto.jps'); width: 50px; height: 50px;">Bootstrap</h1> */}
+
+
+
+            <div class="text-center">
+              <img src="..." class="rounded" alt="..."></img>
+              <span class="border-bottom-0">
+
+              </span>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         </div>
