@@ -1,13 +1,4 @@
-.background {
-    background-image: url('https://via.placeholder.com/1920x1080');
-    background-size: cover; /* Arka plan resminin tam ekranı kaplamasını sağlar */
-    background-repeat: no-repeat; /* Arka plan resminin tekrarlanmasını engeller */
-    background-attachment: fixed; /* Arka plan resminin sayfa kaydırıldığında sabit kalmasını sağlar */
-    background-position: center; /* Arka plan resminin ortalanmasını sağlar */
-    height: 100vh; /* Sayfanın tamamını kaplamasını sağlar */
-    display: flex; /* İçeriği ortalamak için flexbox kullanır */
-    justify-content: center; /* Yatayda ortalar */
-    align-items: center; /* Dikeyde ortalar */
-    /* color: white; İçeriğin daha okunabilir olması için beyaz renk */
-    text-align: center; /* Metni ortalar */
+
+html,body{
+    background-color: #f5f5f5;
 }

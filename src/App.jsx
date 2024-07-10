@@ -79,12 +79,15 @@ function App() {
               </li>
             </ul>
             <div class="col-md-3 text-end">
-              <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#signupModal">Giriş Yap</button>
-              <button type="button" class="btn btn-primary">Kayıt Ol</button>
+              <button type="button" className="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#signupModal">Giriş Yap</button>
+              <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#LogModal">Kayıt Ol</button>
+
+
             </div>
           </div>
         </div>
       </nav>
+
 
 
       {/* */}
@@ -476,43 +479,115 @@ function App() {
           </div> */}
 
 
+          {/* giriş ol pop up */}
+          <div className="modal fade" id="signupModal" tabIndex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div className="modal-dialog" role="document">
+              <div className="modal-content rounded-4 shadow">
+                <div className="modal-header p-5 pb-4 border-bottom-0">
+                  <h1 className="fw-bold mb-0 fs-2">Giriş Yap! </h1>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body p-5 pt-0">
+                  <button type="button" className="btn btn-outline-primary w-100 mb-3">Kayıtlı değil misiniz? Kayıt Ol</button>
+                  <form>
+                    <div className="mb-3">
+                      <label htmlFor="emailInput" className="form-label">E-posta adresi</label>
+                      <input type="email" className="form-control" id="floatingInput" placeholder="isim@örnek.com" />
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor="passwordInput" className="form-label">Şifre</label>
+                      <input type="password" className="form-control" id="floatingPassword" placeholder="Şifre giriniz." />
+                    </div>
+                    <button className="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Giriş Yap</button>
+                    <small className="text-body-secondary">Giriş Yap'a tıkladığınızda şartları kabul etmiş sayılırsınız.</small>
+                    <hr className="my-4" />
+                    <h2 className="fs-5 fw-bold mb-3">Öğretmen veya Öğrenci Olarak Giriş Yap</h2>
+                    <div className="mb-3 form-check">
+                      <input type="radio" id="studentRadio" name="role" className="form-check-input" value="student" />
+                      <label className="form-check-label" htmlFor="studentRadio">Öğrenci</label>
+                    </div>
+                    <div className="mb-3 form-check">
+                      <input type="radio" id="teacherRadio" name="role" className="form-check-input" value="teacher" />
+                      <label className="form-check-label" htmlFor="teacherRadio">Öğretmen</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
-    <div className="modal fade" id="signupModal" tabIndex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-      <div className="modal-dialog" role="document">
-        <div className="modal-content rounded-4 shadow">
-          <div className="modal-header p-5 pb-4 border-bottom-0">
-            <h1 className="fw-bold mb-0 fs-2">Sign up for free</h1>
-            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          {/* Kayıt ol pop up */}
+          <div className="modal fade" id="LogModal" tabIndex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div className="modal-dialog" role="document">
+              <div className="modal-content rounded-4 shadow bg-dark text-white">
+                <div className="modal-header p-4 pb-4 border-bottom-0">
+                  <h1 className="fw-bold mb-0 fs-2">Ücretsiz kayıt ol!</h1>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body p-5 pt-0">
+                  <button type="button" className="btn btn-outline-success-subtle w-100 mb-3 bg-success text-white">Hesabınız zaten var mı?</button>
+                  <form>
+                    <div className="mb-2">
+                      <label htmlFor="textInput" className="form-label">Kullanıcı Adı</label>
+                      <input type="text" className="form-control" id="floatingInput" placeholder="Kullanıcı Adınızı giriniz." />
+                    </div>
+                    <div className="mb-2">
+                      <label htmlFor="textInput" className="form-label">İsim</label>
+                      <input type="text" className="form-control" id="floatingInput" placeholder="Adınızı giriniz." />
+                      <div className="mb-2"></div>
+                    </div>
+                    <label htmlFor="textInput" className="form-label">Soyisim</label>
+                    <input type="text" className="form-control" id="floatingInput" placeholder="Soyisminizi giriniz." />
+                    <div className="mb-2">
+                    </div>
+                    <div className="mb-2">
+                      <label htmlFor="emailInput" className="form-label">E-posta adresi</label>
+                      <input type="email" className="form-control" id="floatingInput" placeholder="isim@örnek.com" />
+                    </div>
+                    <div className="mb-2">
+                      <label htmlFor="passwordInput" className="form-label">Şifre</label>
+                      <input type="password" className="form-control" id="floatingPassword" placeholder="Şifreni gir" />
+                      <div className="mb-2">
+                      </div>
+                      <label htmlFor="passwordInput" className="form-label">Şifre Onayla</label>
+                      <input type="password" className="form-control" id="floatingPassword" placeholder="Şifrenizi tekrar girin." />
+                      <div className="mb-2">
+                      </div>
+                      <label htmlFor="passwordInput" className="form-label">Referans Kodu</label>
+                      <input type="password" className="form-control" id="floatingPassword" placeholder="Öğretmenseniz referans kodunuzu giriniz." />
+                      <div className="mb-2">
+
+                      </div>
+                    </div>
+
+                    <button className="w-100 mb-1 btn btn-lg rounded-2 btn-outline-success-subtle bg-success text-white " type="submit">Kayıt Ol</button>
+                    <small className="text-body-secondary">Kayıt Ol butonuna tıklayarak, şartları kabul etmiş olursunuz.</small>
+
+
+                    <input type="radio" class="btn-check" name="options" id="Öğrenci" autocomplete="off" checked />
+                    <label class="btn btn-secondary" for="option1">Öğrenci</label>
+                    <div className="d-grid gap-2">
+                    </div>
+
+                    <input type="radio" class="btn-check" name="options" id="Öğretmen" autocomplete="off" />
+                    <label class="btn btn-secondary" for="option2">Öğretmen</label>
+
+                    <hr className="my-3" />
+                    <h2 className="fs-5 fw-bold mb-3">Öğretmen veya Öğrenci misiniz?</h2>
+                    <div className="mb-2 form-check btn-outline-success-subtle text-white">
+                      <input type="radio" id="studentRadio" name="role" className="form-check-input" value="student" />
+                      <label className="form-check-label" htmlFor="studentRadio">Öğrenci</label>
+                    </div>
+                    <div className="mb-2 form-check btn-outline-success-subtle text-white">
+                      <input type="radio" id="teacherRadio" name="role" className="form-check-input" value="teacher" />
+                      <label className="form-check-label" htmlFor="teacherRadio">Öğretmen</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="modal-body p-5 pt-0">
-            <button type="button" className="btn btn-outline-primary w-100 mb-3">Kayıtlı değil misiniz? Kayıt Ol</button>
-            <form>
-              <div className="mb-3">
-                <label htmlFor="emailInput" className="form-label">E-posta adresi</label>
-                <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="passwordInput" className="form-label">Şifre</label>
-                <input type="password" className="form-control" id="floatingPassword" placeholder="Password" />
-              </div>
-              <button className="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Giriş Yap</button>
-              <small className="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
-              <hr className="my-4" />
-              <h2 className="fs-5 fw-bold mb-3">Öğretmen veya Öğrenci Olarak Giriş Yap</h2>
-              <div className="mb-3 form-check">
-                <input type="radio" id="studentRadio" name="role" className="form-check-input" value="student" />
-                <label className="form-check-label" htmlFor="studentRadio">Öğrenci</label>
-              </div>
-              <div className="mb-3 form-check">
-                <input type="radio" id="teacherRadio" name="role" className="form-check-input" value="teacher" />
-                <label className="form-check-label" htmlFor="teacherRadio">Öğretmen</label>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
 
 
 
