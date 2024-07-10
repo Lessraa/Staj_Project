@@ -12,7 +12,7 @@ function App() {
         </div>
       </div>
 
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      {/* <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">SORU ÇÖZ(opsiyonel)</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,45 @@ function App() {
             </div>
           </div>
         </div>
+      </nav> */}
+
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">SORU ÇÖZ(opsiyonel)</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <div class="col-md-3 text-end">
+              <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#signupModal">Giriş Yap</button>
+              <button type="button" class="btn btn-primary">Kayıt Ol</button>
+            </div>
+          </div>
+        </div>
       </nav>
+
 
       {/* */}
 
@@ -231,31 +269,250 @@ function App() {
           </div>
 
           {/* Deneme tahtası buranın altı */}
-          <div className="col-6">
-            <div class="media">
-              <img src="örnek_foto.jpg" class="img-fluid" alt="Responsive image"></img>
-              <div class="media-body">
-                <h5 class="mt-0">Media heading</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-            </div>
-
-            {/* <h1 class="text-hide" style="background-image: url('örnek_foto.jps'); width: 50px; height: 50px;">Bootstrap</h1> */}
+          {/* <h1 class="text-hide" style="background-image: url('örnek_foto.jps'); width: 50px; height: 50px;">Bootstrap</h1> */}
 
 
-
+          {/* 
             <div class="text-center">
               <img src="..." class="rounded" alt="..."></img>
               <span class="border-bottom-0">
-
+              
               </span>
+              </div> */}
+
+
+
+
+          <button
+            class="btn btn-primary"
+          >
+            Notifications
+            <span
+              class="badge bg-primary"
+            >20</span
+
+            >
+          </button>
+
+          <div class="container-fluid">
+            <div class="row">
+              <div
+                class="col-sm-4"
+              >
+                --
+              </div>
+              <div
+                class="col-4"
+              >
+                <div className="col-6">
+                  <div class="media">
+                    <img src="örnek_foto.jpg" class="img-fluid" alt="Responsive image"></img>
+                    <div class="media-body">
+                      <h5 class="mt-0">Media heading</h5>
+                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              Second Column
             </div>
           </div>
 
+          {/*                                                                                              */}
+
+          {/* <button
+            type="button"
+            class="btn btn-primary btn-lg"
+            data-bs-toggle="modal"
+            data-bs-target="#modalId"
+          >
+            Launch
+          </button> */}
+          {/* giriş butonuna entegre edilecek */}
+
+          {/* <div
+            class="modal fade"
+            id="modalId"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="modalTitleId"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content rounded-4 shadow">
+                <div class="modal-header p-5 pb-4 border-bottom-0">
+                  <h1 class="fw-bold mb-0 fs-2">Sign up for free</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-5 pt-0">
+                  <form class="">
+                    <div class="form-floating mb-3">
+                      <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" />
+                      <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password" />
+                      <label for="floatingPassword">Password</label>
+                    </div>
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign up</button>
+                    <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+                    <hr class="my-4" />
+                    <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
+                    <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
+                      <svg class="bi me-1" width="16" height="16">
+                        <use xlink:href="#twitter"></use>
+                      </svg>
+                      Sign up with Twitter
+                    </button>
+                    <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">
+                      <svg class="bi me-1" width="16" height="16">
+                        <use xlink:href="#facebook"></use>
+                      </svg>
+                      Sign up with Facebook
+                    </button>
+                    <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
+                      <svg class="bi me-1" width="16" height="16">
+                        <use xlink:href="#github"></use>
+                      </svg>
+                      Sign up with GitHub
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div> */}
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          {/* <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalTitleId">
+                        Modal title
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="container-fluid">Add rows here</div>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                  </div>
+                </div> 
+         </div> */}
+
+          {/* <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content rounded-4 shadow">
+                <div class="modal-header p-5 pb-4 border-bottom-0">
+                  <h1 class="fw-bold mb-0 fs-2">Sign up for free</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-5 pt-0">
+                  <form class="">
+                    <div class="form-floating mb-3">
+                      <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" />
+                      <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password" />
+                      <label for="floatingPassword">Password</label>
+                    </div>
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign up</button>
+                    <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+                    <hr class="my-4" />
+                    <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
+                    <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
+                      <svg class="bi me-1" width="16" height="16">
+                        <use xlink:href="#twitter"></use>
+                      </svg>
+                      Sign up with Twitter
+                    </button>
+                    <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">
+                      <svg class="bi me-1" width="16" height="16">
+                        <use xlink:href="#facebook"></use>
+                      </svg>
+                      Sign up with Facebook
+                    </button>
+                    <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
+                      <svg class="bi me-1" width="16" height="16">
+                        <use xlink:href="#github"></use>
+                      </svg>
+                      Sign up with GitHub
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div> */}
+
+
+
+
+    <div className="modal fade" id="signupModal" tabIndex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+      <div className="modal-dialog" role="document">
+        <div className="modal-content rounded-4 shadow">
+          <div className="modal-header p-5 pb-4 border-bottom-0">
+            <h1 className="fw-bold mb-0 fs-2">Sign up for free</h1>
+            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div className="modal-body p-5 pt-0">
+            <button type="button" className="btn btn-outline-primary w-100 mb-3">Kayıtlı değil misiniz? Kayıt Ol</button>
+            <form>
+              <div className="mb-3">
+                <label htmlFor="emailInput" className="form-label">E-posta adresi</label>
+                <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="passwordInput" className="form-label">Şifre</label>
+                <input type="password" className="form-control" id="floatingPassword" placeholder="Password" />
+              </div>
+              <button className="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Giriş Yap</button>
+              <small className="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+              <hr className="my-4" />
+              <h2 className="fs-5 fw-bold mb-3">Öğretmen veya Öğrenci Olarak Giriş Yap</h2>
+              <div className="mb-3 form-check">
+                <input type="radio" id="studentRadio" name="role" className="form-check-input" value="student" />
+                <label className="form-check-label" htmlFor="studentRadio">Öğrenci</label>
+              </div>
+              <div className="mb-3 form-check">
+                <input type="radio" id="teacherRadio" name="role" className="form-check-input" value="teacher" />
+                <label className="form-check-label" htmlFor="teacherRadio">Öğretmen</label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
@@ -274,7 +531,7 @@ function App() {
 
 
         </div>
-      </div>
+      </div >
 
     </>
   )
