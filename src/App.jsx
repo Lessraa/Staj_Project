@@ -94,16 +94,18 @@ function App() {
 
       <div class="container mt-4">
         <div class="row g-3">
-          <div class="col-12 bg-primary">
+          <div class="col-12 bg-transparent">
             <div className="bg-primary">
               <div class="p-5 text-start bg-dark rounded-3">
-                <h1 class="text-white">Basic jumbotron</h1>
+                <h1 class="text-white fst-italic">Biz kimiz?</h1>
                 <p class="lead text-white ">
-                  <div class="overflow-auto"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum magnam sint aliquid, similique dolor, illo laborum facilis reiciendis aspernatur labore at eius harum nihil ratione dolore facere magni veniam omnis dignissimos aliquam quos sunt iusto ipsam ullam. Dolorum, in. Autem explicabo ut voluptates harum dolore asperiores neque aut rem hic nesciunt laboriosam in, rerum exercitationem tenetur aspernatur iure dicta repellat minima deserunt repellendus voluptatem eveniet at. Earum laboriosam voluptatem vel! </div>
+                  <div class="overflow-auto mb-4 "> Sorular ile boğuşup, aynı zamanda iyi bir yere gelmek isteyen öğrenciler için varız! Bıktınız biliyoruz. Artık buna son verme vakti geldi. Ne bekliyorsun? Bizde ki tek eksik sensin, hadi katıl sende! </div>
+                  <button type="button" class="btn btn-success-subtle bg-success text-white px-5 " data-bs-toggle="modal" data-bs-target="#LogModal2">Daha ne bekliyorsun!</button>
                 </p>
               </div>
             </div>
           </div>
+
 
           {/* Teste yönlendiren Sayfa */}
 
@@ -321,86 +323,6 @@ function App() {
             </div>
           </div>
 
-          {/*                                                                                              */}
-
-          {/* <button
-            type="button"
-            class="btn btn-primary btn-lg"
-            data-bs-toggle="modal"
-            data-bs-target="#modalId"
-          >
-            Launch
-          </button> */}
-          {/* giriş butonuna entegre edilecek */}
-
-          {/* <div
-            class="modal fade"
-            id="modalId"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="modalTitleId"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog" role="document">
-              <div class="modal-content rounded-4 shadow">
-                <div class="modal-header p-5 pb-4 border-bottom-0">
-                  <h1 class="fw-bold mb-0 fs-2">Sign up for free</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body p-5 pt-0">
-                  <form class="">
-                    <div class="form-floating mb-3">
-                      <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" />
-                      <label for="floatingInput">Email address</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                      <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password" />
-                      <label for="floatingPassword">Password</label>
-                    </div>
-                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign up</button>
-                    <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
-                    <hr class="my-4" />
-                    <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
-                    <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
-                      <svg class="bi me-1" width="16" height="16">
-                        <use xlink:href="#twitter"></use>
-                      </svg>
-                      Sign up with Twitter
-                    </button>
-                    <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">
-                      <svg class="bi me-1" width="16" height="16">
-                        <use xlink:href="#facebook"></use>
-                      </svg>
-                      Sign up with Facebook
-                    </button>
-                    <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
-                      <svg class="bi me-1" width="16" height="16">
-                        <use xlink:href="#github"></use>
-                      </svg>
-                      Sign up with GitHub
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
           {/* <div class="modal-dialog" role="document">
@@ -482,13 +404,13 @@ function App() {
           {/* giriş ol pop up */}
           <div className="modal fade" id="signupModal" tabIndex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
             <div className="modal-dialog" role="document">
-              <div className="modal-content rounded-4 shadow">
+              <div className="modal-content rounded-4 shadow bg-dark text-white">
                 <div className="modal-header p-5 pb-4 border-bottom-0">
                   <h1 className="fw-bold mb-0 fs-2">Giriş Yap! </h1>
                   <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body p-5 pt-0">
-                  <button type="button" className="btn btn-outline-primary w-100 mb-3">Kayıtlı değil misiniz? Kayıt Ol</button>
+                  <button type="button" className="btn btn-outline-success-subtle w-100 mb-3 bg-success text-white">Kayıtlı değil misiniz? Kayıt Ol</button>
                   <form>
                     <div className="mb-3">
                       <label htmlFor="emailInput" className="form-label">E-posta adresi</label>
@@ -498,7 +420,7 @@ function App() {
                       <label htmlFor="passwordInput" className="form-label">Şifre</label>
                       <input type="password" className="form-control" id="floatingPassword" placeholder="Şifre giriniz." />
                     </div>
-                    <button className="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Giriş Yap</button>
+                    <button className="w-100 mb-2 btn btn-outline-success rounded-3 btn-primary bg-success text-white" type="submit">Giriş Yap</button>
                     <small className="text-body-secondary">Giriş Yap'a tıkladığınızda şartları kabul etmiş sayılırsınız.</small>
                     <hr className="my-4" />
                     <h2 className="fs-5 fw-bold mb-3">Öğretmen veya Öğrenci Olarak Giriş Yap</h2>
@@ -564,6 +486,11 @@ function App() {
                     <button className="w-100 mb-1 btn btn-lg rounded-2 btn-outline-success-subtle bg-success text-white " type="submit">Kayıt Ol</button>
                     <small className="text-body-secondary">Kayıt Ol butonuna tıklayarak, şartları kabul etmiş olursunuz.</small>
 
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <button type="button" class="btn btn-primary">Left</button>
+                      <button type="button" class="btn btn-primary">Middle</button>
+                    </div>
+
 
                     <input type="radio" class="btn-check" name="options" id="Öğrenci" autocomplete="off" checked />
                     <label class="btn btn-secondary" for="option1">Öğrenci</label>
@@ -591,7 +518,52 @@ function App() {
 
 
 
+          <div className="modal fade" id="LogModal2" tabIndex="-1" data-bs-backdrop="static" role="dialog" data-bs-keyboard="false" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div className="modal-dialog" role="document">
+              <div className="modal-content position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5">
+                {/* <div className="modal-header "> */}
+                  <div class="col-12 mx-auto px-4">
+                    {/* <div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5"> */}
+                      <button type="button" class="position-absolute top-0 end-0 p-3 m-3 btn-close bg-secondary bg-opacity-10 rounded-pill" data-bs-dismiss="modal"aria-label="Close"></button>
+                      <svg class="bi mt- mb-" width="48" height="48"><use xlink:href="#check2-circle"></use></svg>
+                      <h1 class="text-body-emphasis ma">Placeholder jumbotron</h1>
+                      <p class="col-lg-6 mx-auto width-auto ">
+                        This faded back jumbotron is useful for placeholder content. It's also a great way to add a bit of context to a page or section when no content is available and to encourage visitors to take a specific action.
+                      </p>
+                      <button class="btn btn-primary px-4 p-1 m-4" type="button">
+                        Call to action
+                      </button>
+                    </div>
+                  {/* </div> */}
 
+                {/* </div> */}
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Understood</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
 
